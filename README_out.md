@@ -1,4 +1,4 @@
-# Github generator
+# Readme Generator
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -13,27 +13,27 @@
   * [Credits](#credits)
 
   ## Description
-  It gets user responses bout a project and generates an readme file
+  This is an app that creates professional README.md fils
 
   ## Installation
-  no special installation instructions are required
+  clone to github repo, and install the app in your local folder
 
   ## Usage
-  nill
+  type node index.js and follw the instructions
 
   ## Licenses
     This project is covered under the MIT license. To learn more about what this means, click the license button at the top.
 
   ## Contributing
-  send me an email
+  yest thanks, sends us an email
 
   ## Tests
   nill
 
   ## Questions
   Have questions about this project?  
-  GitHub: https://github.com/pGian  
-  Email: panos@hotmail.com
+  GitHub: https://github.com/PanosGian  
+  Email: panos@mydomain.com
 
   ## Credits
-  Panos G.
+  Panos Giann

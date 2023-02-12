@@ -2,11 +2,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-
-
-
-
-
 // Array of inquire-question objects for user input prompts
 const questions = [
     {
@@ -168,28 +163,6 @@ function ValidateEmail(mail) {
 }
 
 
-// Function to write markdown to the README_out.md file
-const writeToFile = data => {
-    return new Promise((resolve, reject) => {
-        // make a readme file and add to dist folder
-        fs.writeFile('./README_out.md', data, err => {
-            // if there's an error, reject the Promise and send the error to .catch() method
-            if (err) {
-                reject(err);
-                // return out of the function here to make sure the Promise doesn't continut to execute the resolve() function
-                return;
-            }
-            // if everything went well, resolve the Promise and send the successful data to the .then() method
-            resolve({
-                ok: true,
-                message: console.log('Success! Navigate to the "dist" folder to see your README_out.md!')
-            });
-        })
-    })
-}
-
-
-
 // Initialize app
 const init = () => {
     return inquirer.prompt(questions);
@@ -199,7 +172,7 @@ const init = () => {
 init()
     //Generate Markdown texts from user responses
     .then(userInput => {
-        return generateMarkdown(userInput);
+        return createMarkdown(userInput);
     })
     //Create a README File and pass the markdown text
     .then(readmeInfo => {
@@ -214,7 +187,7 @@ init()
 
 
 // Returns a license badge based on which license is selected
-function renderLicenseBadge(license) {
+function getLicenseBadge(license) {
     if (!license) {
         return ``;
     } else {
@@ -242,7 +215,7 @@ function renderLicenseBadge(license) {
 }
 
 // Returns the license section of README. If there is no license, return an empty string
-function renderLicenseSection(license) {
+function setLicenseSection(license) {
     if (!license) {
         return ``;
     } else {
@@ -252,10 +225,10 @@ function renderLicenseSection(license) {
 }
 
 // Generate markdown for README
-function generateMarkdown(data) {
+function createMarkdown(data) {
     return `# ${data.title}
 
-  ${renderLicenseBadge(data.licenses)}
+  ${getLicenseBadge(data.licenses)}
 
   ## Table of Contents
   * [Description](#description)
@@ -276,7 +249,7 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
-  ${renderLicenseSection(data.licenses)}
+  ${setLicenseSection(data.licenses)}
 
   ## Contributing
   ${data.contributing}
@@ -293,6 +266,24 @@ function generateMarkdown(data) {
   ${data.name}
 `;
 }
+
+
+// Function to write markdown to the README_out.md file
+const writeToFile = data => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./README_out.md', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: console.log('\n\nThe README_OUT.md file was generated successfully!')
+            });
+        })
+    })
+}
+
 
 
 

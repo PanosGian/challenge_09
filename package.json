@@ -1,0 +1,22 @@
+{
+  "name": "challenge_09",
+  "version": "1.0.0",
+  "description": "readme file generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PanosGian/challenge_09.git"
+  },
+  "author": "Panos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PanosGian/challenge_09/issues"
+  },
+  "homepage": "https://github.com/PanosGian/challenge_09#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
